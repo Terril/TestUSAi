@@ -4,7 +4,6 @@ class SamePairProblem {
         fun main(args: Array<String>) {
             pairSearch("11001")
             pairSearch("1111111111")
-            pairSearch("1010101010")
         }
 
         private fun pairSearch(sequence: String) {
@@ -21,18 +20,20 @@ class SamePairProblem {
                 }
             }
             if (sequenceCount > 0) {
-                print("same pair count :: $sequenceCount \n")
+                print("Same pair count :: $sequenceCount \n")
                 pairCountFrequency.forEach {
-                    print("frequencies for :: ${it.key} is ${it.value} \n")
+                    print("Frequencies for :: ${it.key} is ${it.value} \n")
                 }
             } else {
-                print("same pair not found")
+                print("Same pair not found")
             }
         }
 
         /*
 * This function will maintain the frequency for same pair
 * Uses a hashmap with the binary digit as key and the number of frequency as value
+* @param frequencyMap to check for items to get the frequent of a bit
+* @param binary is key for the map
 * */
         private fun addFrequency(frequencyMap: HashMap<Char, Int>, binary: Char): HashMap<Char, Int> {
             if (frequencyMap.containsKey(binary)) {
