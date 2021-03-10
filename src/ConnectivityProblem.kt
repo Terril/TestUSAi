@@ -38,7 +38,7 @@ class ConnectivityProblem {
                         if (matrix[j][i] == 1) {
                             x = j
                             y = i
-                            check4sNeighbours(x, matrix, y, stack, ++parent)
+                            check8sNeighbours(x, matrix, y, stack, ++parent)
                         }
                     } else {
                         while (!stack.isEmpty()) {
@@ -46,7 +46,7 @@ class ConnectivityProblem {
                             matrix[popChild[0]][popChild[1]] = parent
                             x = popChild[0]
                             y = popChild[1]
-                            check4sNeighbours(x, matrix, y, stack, parent)
+                            check8sNeighbours(x, matrix, y, stack, parent)
                         }
                     }
                 }
@@ -116,7 +116,7 @@ class ConnectivityProblem {
             x: Int,
             matrix: Array<IntArray>,
             y: Int,
-            stack: Stack<IntArray>
+            stack: Stack<IntArray>, parent: Int
         ) {
             if (x == -1) {
                 return
@@ -162,7 +162,7 @@ class ConnectivityProblem {
             if (x + 1 < columnSize && y + 1 < rowSize && matrix[x + 1][y + 1] == 1) {
                 stack.push(intArrayOf(x + 1, y + 1))
             }
-
+            matrix[x][y] = parent
         }
     }
 }
